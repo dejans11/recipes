@@ -1,0 +1,18 @@
+1. Create new linux VM
+2. Install MongoDB
+  sudo apt-get update
+  sudo apt-get install -y mongodb-org
+3. Start/Stop/Restart/Status for Mongo service
+  sudo service mongod start
+sudo service mongod stop
+sudo service mongod restart
+sudo service mongod status
+4. Dump mongodb
+ mongod service has to be stoped while dumping is in process
+mongodump --out mongodump-23092015
+5. Copy dump file from one server to another
+  scp -rp mongodump-23092015/ root@188.93.124.31:/home/dump
+6. Restore mongodb
+ mongod service has to be started before restore process
+   mongorestore mongodump-23092015 --drop
+7. Access mongodb from another server
